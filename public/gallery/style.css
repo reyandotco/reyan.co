@@ -25,12 +25,12 @@ body {
 
 .gal {
   width: 90vw;
-  margin: 0 auto;
+  margin: auto;
 }
 
 @media (min-width: 991.98px) {
   .gal {
-    column-count: 3;
+    column-count: 2;
   }
 }
 
@@ -38,18 +38,26 @@ body {
   .gal {
     column-count: 2;
   }
+  .gal-image {
+    padding: 1rem !important;
+    margin-bottom: 2rem !important;
+  }
 }
 
 @media (max-width: 575.98px) {
   .gal {
     column-count: 2;
   }
+  .gal-image {
+    padding: 1rem !important;
+    margin-bottom: 2rem !important;
+  }
 }
 
 .gal-image {
   width: 100%;
-  margin-bottom: 1rem;
-  border: 1px inset #27272744;
+  padding: 2rem;
+  margin-bottom: 3rem;
 }
 
 .gal-thumb {
@@ -57,15 +65,16 @@ body {
 }
 
 h1 {
+  font-size: 3rem;
   font-family: "InterDisplay", -apple-system, "system-ui", Helvetica, sans-serif;
   margin: 0 auto;
-  text-align: left;
+  text-align: center;
   width: 90vw;
 }
 
 hr {
   border: 0;
-  border-bottom: 1px solid #d8d8d8;
+  border-bottom: 0px solid #d8d8d8;
   content: "";
   margin: 2rem auto;
   width: 90vw;
