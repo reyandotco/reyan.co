@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Design decisions</title>
+    <link rel="shortcut icon" href="/icon.png" type="image/x-icon" />
+    <link rel="icon" href="/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/style.css" media="screen" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Why I do what I do." />
+  </head>
+  <article>
+    <h1>Design Decisions</h1>
+    <h4>Apr 19, 2021 &mdash; Reyan Chaudhry</h4>
+    <hr />
+    <p>
+      As you may or may not have noticed, a <em>lot</em> has changed on this
+      website over the past month or so. This is, of course, concurrent with my
+      newly gained knowledge of design, web development, and typography.
+      Furthermore, as I surf the lesser traversed parts of the web more and
+      more, I've come across copious amounts of inspiration, a lot of which has
+      found it's way into my—hopefully— final design for this website.
+    </p>
+    <h2 class="colour-choices">Colour choices</h2>
+    <p>
+      When it comes to colour, I've decided to go for a more monotone aesthetic,
+      akin to what I've been doing with my
+      <a
+        href="https://gitlab.com/co1ncidence/colours/-/blob/master/mnml/clr/mnml.vim"
+        >vim colourscheme</a
+      >
+      as of late. I've found that using special colours sparingly and relying on
+      tones of monochromes instead of a rainbow of contrasting syntax elements
+      for the any contrast needed. On that note, I've settled with
+      <code>#f5f5f5</code> as my background colour with a nice
+      <code>#272727</code> as the main foreground; this provides good contrast
+      while maintaining non-blinding readability. Shades of both are used for
+      differing elements such as code blocks, dividers, and highlighted text all
+      around. Links are slightly faded and have a visible underline that becomes
+      the background upon pointer interaction. It's subtle but lets the links
+      stand out without too many border/background colour tricks.
+    </p>
+    <aside>
+      <p>
+        I've stolen the red from
+        <a href="https://practicaltypography.com/">Practical Typography</a>, an
+        ((actually)) well designed website.
+      </p>
+    </aside>
+    <p>
+      As an accent, I've decided to use <code>#a93232</code>, I used to use the
+      accent color a lot more but it's sort of just been delegating for the
+      below mentioned syntax use. Perhaps I'll find a new use for this accent
+      color one day.
+    </p>
+    <p>
+      I list things a lot, so it's only fair I have a custom
+      <code>ul</code> element:
+    </p>
+    <ul>
+      <li>This is</li>
+      <li>what a list</li>
+      <li>looks like.</li>
+    </ul>
+    <h2 class="syntax-highlighting">“Syntax Highlighting”</h2>
+    <p>
+      Here is where I ran into a conundrum, I wanted some basic syntax
+      highlighting for any code blocks I used but didn't want to import some
+      bloated javascript library while doing so. The solution? Pandoc's built-in
+      class assignment for code. I realized this while looking through my auto
+      generated post files. Pandoc automatically assigns classes to individual
+      words in <code>pre</code> elements based on what language you mark the
+      code block in your markdown file. This allows me to implement my own
+      signature minimal syntax style using just css:
+    </p>
+    <div class="source-code">
+      <pre
+        class="source-code cpp"
+      ><code class="source-code cpp"><span class="dt">void</span> fillArrayWithRandNos(<span class="dt">int</span> nos[], <span class="dt">int</span> size) {
+   <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; i++) {
+     nos[i] = rand() % (<span class="dv">45</span>) + <span class="dv">55</span>;
+   }
+ }
+
+<span class="dt">void</span> displayArray(<span class="dt">int</span> nos[], <span class="dt">int</span> size) {
+  cout &lt;&lt; <span class="st">&quot;</span><span class="sc">\n</span><span class="st">The Array of Scores: </span><span class="sc">\n</span><span class="st">&quot;</span> &lt;&lt; endl;
+  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; i++) {
+    cout &lt;&lt; nos[i] &lt;&lt; <span class="st">&quot; &quot;</span>;
+    <span class="cf">if</span> ((i + <span class="dv">1</span>) % <span class="dv">10</span> == <span class="dv">0</span>)
+      cout &lt;&lt; endl;
+  }
+}
+
+<span class="dt">double</span> variance(<span class="dt">int</span> nos[], <span class="dt">int</span> size) {
+  <span class="dt">double</span> avg = mean(nos, size);
+  <span class="dt">double</span> variance, sum = <span class="dv">0</span>;
+  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; i++) {
+    sum += pow(nos[i] - avg, <span class="dv">2</span>);
+  }
+  variance = (<span class="dt">double</span>)sum / (size);
+  <span class="cf">return</span> variance;
+}</code></pre>
+    </div>
+    <aside>
+      <p>It took immense effort for me to not use the word “cringe” here.</p>
+    </aside>
+    <p>
+      This is about as far as I'm going to go, as anything else would require
+      way more effort than it's worth and would unnecessarily bloat my site. No,
+      I'm not going to add shittily implemented line numbers or “block titles”
+      designating what language is inside each code block. Go Copy paste the
+      code into an IDE or text editor of your choice if you really need that.
+    </p>
+    <h2 class="headers">Headers</h2>
+    <p>
+      I used to go absolutely crazy here, but now I use just the Sans font and
+      some generous padding for headers, nice and simple works best I've
+      learned. Those who remember my iA Writer style sideways headers can
+      rejoice now, that stuff was NOT fun to implement.
+    </p>
+    <h2 class="typography">Typography</h2>
+    <p>
+      I've settled on
+      <a href="https://commercialtype.com/catalog/lyon_text">Lyon Text</a>
+      as my main body text typeface, it is readable, compact, and has great
+      <strong>bold</strong> and <em>italic</em> variants. For headers and sans
+      elements, I've decided to use
+      <a href="https://www.swisstypefaces.com/fonts/suisse/">Suisse</a>, a
+      stable, minimalist, and quintessentially Swiss typeface. For monospaced
+      text I've decided to go bespoke and give
+      <a href="https://lineto.com/typefaces/akkurat-mono">Akkurat Mono</a> a
+      chance, it's quite nice, although I may switch to something more universal
+      in the future for accessibility reasons.
+    </p>
+    <p>
+      Text width (for the main body) is locked at a nice 50 characters, I use
+      viewport-dependent font sizes so regardless of the screen you are viewing
+      on this results in a comfortable balance in font size and text density.
+    </p>
+    <h2 class="images">Images</h2>
+    <p>
+      In keeping with the theme of simplicity, I've decided to give up my former
+      ideas regarding image borders and whatnot and instead just let the
+      pictures breathe, it works well.
+    </p>
+    <figure>
+      <img
+        loading="lazy"
+        src="https://images.unsplash.com/photo-1512327518450-82048853653e?ixclass=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+        alt="Daniel Plan at his finest"
+      />
+    </figure>
+    <h2 class="responsiveness">Responsiveness</h2>
+    <p>
+      I think I've actually achieved some level of respectable responsiveness,
+      only took me 3 years. The website should work on most aspect ratios and
+      screen sizes and maintain readability. Unfortunately all
+      <code>&lt;aside&gt;</code> elements will disappear if the screen isn't
+      wide enough&mdash;something I'm still trying to find a workaround for. The
+      <a href="https://reyan.co/gallery">gallery</a> is still best consumed
+      widescreen.
+    </p>
+    <h2 class="conclusion">Conclusion</h2>
+    <p>
+      All in all, I think I've managed to fashion a minimal yet still
+      characteristic design for this website. There are some rough edges still
+      here and there, but it will be more than enough for now. My purpose for
+      spending so much time here wasn't so much just to make this site look
+      nice, but also as as design practice, and it functioned well for that
+      purpose as well.
+    </p>
+    <p>Have a good day.</p>
+  </article>
+  <a class="backtotop" href="#">↑</a>
+</html>

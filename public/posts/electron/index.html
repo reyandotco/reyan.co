@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Bearable Electron Apps</title>
+    <link rel="shortcut icon" href="/icon.png" type="image/x-icon" />
+    <link rel="icon" href="/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/style.css" media="screen" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="&ldquo;Sometimes we do just have to sit and cope...&rdquo;"
+    />
+  </head>
+  <article>
+    <h1>Bearable Electron Apps</h1>
+    <h4>Oct 08, 2022 &mdash; Reyan Chaudhry</h4>
+    <hr />
+    <p>
+      In my journeys throughout both my computer and the internet I have begun
+      to notice a certain resurgence among the more technical (and even fairly
+      average) desktop app audience. More and more people are starting to notice
+      the significant lack of meaningful performance increases in the software
+      they use every day, especially compared to the leaps and bounds that
+      hardware innovation has taken these past decade or so.
+    </p>
+    <aside>
+      <p>
+        I mention windows here but tbh macOS Mojave on Intel unironically feels
+        just as fast as monterey on an M1... Whether that's a compliment or
+        insult to Apple is open to interpretation.
+      </p>
+    </aside>
+    <p>
+      If our processors are running 100x faster, if our operating systems have
+      had 10 years to be refined, if developers are getting access to newer and
+      shinier and even more &ldquo;memory-safe&rdquo; tools day by day, why does
+      nothing feel any faster? In fact, comparing a modern windows computer to
+      one form 15 years ago running windows 7 or even windows XP you will find
+      that not only is there not a significant increase in snappiness and/or
+      usability, in some instances there's actually a <b>downgrade</b> in those
+      metrics!
+    </p>
+    <p>
+      This is just a small subset of the problems that end users are facing time
+      and time again; and the largest, most despised perpetrator of said
+      problems is none other than the Electron JavaScript GUI framework–The
+      Hogger of Ram, The Drainer of Batteries, and the Harbinger of Inconsistent
+      UI.
+    </p>
+    <p>
+      Overdramatic introduction aside, it's no secret how terrible these
+      &ldquo;Electron Apps&rdquo; are to both use and tolerate on a daily basis.
+      Hell, even having more than 2 of these abominations running simultaneously
+      on an average computer is enough to stunt is performance. Classic examples
+      include apps like Discord and the new Spark v3.0 Email app, but there is
+      no shortage of the garbage that these web developers feigning as native
+      app devs manage to churn out year after year–and honestly it's prevalence
+      should be a shame to the greater software engineering community. Of
+      course, I understand the application of Electron for prototyping, but
+      shipping out full fledged, bug ridden, and downright slow desktop
+      apps&mdash;sometimes even for a PRICE&mdash;should be unacceptable...
+    </p>
+    <h2>On the other hand...</h2>
+    <p>
+      Despite all of this, however, there are a few Electron apps that manage to
+      provide impressive usability with adequate performance. Although I believe
+      that all of these would be better off as Native solutions, it's hard not
+      to commend the developers for somehow managing to develop actual decent
+      software in such a terrbile, bandage and flex-seal ridden cesspool of an
+      ecosystem.
+    </p>
+    <aside>
+      <p>
+        Is it really too hard to pixel-peep macOS/Windows/Adwaita GUI widgets
+        and create a 1:1 copy of native ecosystems? There have been some
+        <a href="https://github.com/GroovinChip/macos_ui">laughable attempts</a>
+        but surely a half-sane person could do it?
+      </p>
+    </aside>
+    <p>
+      Sure, they still don't have truly native and/or performant fit and finish,
+      nor they they integrate correctly with things I'd like them to, but they
+      get the job done and do it better than most competitors that I can think
+      of (though usually through brute force of userbase).
+    </p>
+    <p>
+      I'd like to mention some of these apps as a sort of podium for other
+      aspiring JavaScript teams to use as a baseline for anything that they
+      believe can only be made in Electron...
+    </p>
+    <h2>1Password 8</h2>
+    <figure>
+      <img
+        loading="lazy"
+        src="/media/images/electron/1password.png"
+        alt="1Password 8 Ram Usage"
+      />
+      <figcaption>
+        Acceptable memory numbers considering heavy usage and ~3 days of uptime.
+      </figcaption>
+    </figure>
+    <p>
+      Although my first pick here is sure to cause some controversy for the
+      HN-type vaultwarden shilling crowd, it's one that I will stick by. I've
+      been a fairly long-time subscriber to 1Password&mdash;ever since I got
+      tired of Bitwarden's insufferable quirks&mdash;and got to use version 7
+      for quite some time before the release of the latest, and electron-based
+      release. Without a doubt the electron version is
+      <em>barely a downgrade</em> and actually has a suite of features that make
+      it far more user-friendly than 1Password 7, which frankly had a pretty
+      goofy main window UI (quite modified from native I will admit) and a
+      borderline frustrating &ldquo;Mini&rdquo; window that gave me way more
+      headaches than I would've liked.
+    </p>
+    <p>
+      The new version has Universal Autofill and a quite nice spotlight-like
+      database searching feature, and overall runs much smoother than the last.
+      Although the frontend isn't native, AgileBits has gone to almost obsessive
+      lengths (Rust backend, agressive performance regression testing) to make
+      sure that you don't miss out on much; it has great UI parity with the rest of
+      macOS and even respects the user's choice of accent color (graphite!!!).
+      Furthermore, the App's ram usage&mdash;in the testing that I've done, at
+      least&mdash; has remained about the same, if not a little less than
+      before! The app also does database searches much quicker and has never,
+      and I mean never, felt sluggish anytime that I've used it, and my vault
+      has more than 300 items of varying categories!
+    </p>
+    <p>
+      And to complete my point, the client is the same on Linux/Windows and also
+      remains native (SwiftUI + Rust) on iOS, on which it is honestly a pleasure
+      to use, so my complaints for now remain limited. A lot of people left
+      1Password after this announcement because it was &ldquo;Just like
+      BitWarden&rdquo; now, but I find that to be very far from the truth...
+      It's actually still an upgrade.
+    </p>
+  </article>
+  <a class="backtotop" href="#">↑</a>
+</html>

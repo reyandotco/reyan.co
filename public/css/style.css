@@ -1,0 +1,588 @@
+@charset "UTF-8";
+@import url("/css/lyontext/font.css");
+@import url("/css/lyondisplay/font.css");
+@import url("/css/ibmplexmono/font.css");
+@import url("/css/inter/font.css");
+* {
+  font-feature-settings: "kern" 1, "liga" 1, "onum" 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-variant-numeric: normal;
+}
+
+html {
+  -webkit-hyphens: auto;
+  background: #f5f5f5;
+  color: #272727;
+  font-size: 1rem;
+  height: 100%;
+  hyphens: auto;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+div {
+  display: block;
+}
+
+p + p {
+  text-indent: 2rem;
+}
+
+a {
+  background: none;
+  color: #272727;
+  text-decoration: underline;
+  text-decoration-color: #d8d8d8;
+}
+a::visited {
+  color: #585858;
+}
+a:hover {
+  background: #d8d8d8;
+}
+
+.copy {
+  background: none;
+  border: none;
+  color: #898989;
+  text-decoration: none;
+}
+.copy::visited {
+  color: #585858;
+}
+.copy:hover {
+  background: transparent;
+  color: #272727;
+}
+
+ul {
+  list-style: none;
+  margin: 1rem;
+  padding-left: 1ch;
+}
+ul li::before {
+  color: #898989;
+  content: "-";
+  padding-right: 1ch;
+}
+
+ol {
+  margin: 1rem;
+  padding-left: 1ch;
+}
+ol li {
+  counter-increment: list;
+  list-style-type: none;
+}
+ol li::before {
+  color: #898989;
+  content: counter(list) ".";
+  padding-right: 1ch;
+}
+
+article {
+  font-family: "Lyon Text", Charter, "Bitstream Charter", Georgia, serif;
+  font-size: clamp(1.125rem, 1.4vw, 1.375rem);
+  line-height: 1.5;
+  margin: 5vh auto;
+  padding: 0 0 5rem;
+  max-width: 50ch;
+}
+@media (max-width: 575.98px) {
+  article {
+    margin: 5vh auto;
+    padding: 0 2ch 5rem;
+    width: 100%;
+  }
+}
+
+aside {
+  color: #898989;
+  float: left;
+  font-family: "InterDisplay", -apple-system, "system-ui", Helvetica, sans-serif;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  line-height: inherit;
+  margin-left: -22rem;
+  text-align: right;
+  width: 18rem;
+  hyphens: manual;
+}
+aside a:hover {
+  background: #d8d8d8;
+}
+@media (max-width: 1199.98px) {
+  aside {
+    background: #ebebeb;
+    border-radius: 5px;
+    border: 1px solid #d8d8d8;
+    color: #898989;
+    display: block;
+    float: none;
+    margin: 1rem 0;
+    padding: 1rem;
+    text-align: left;
+    width: 100%;
+    font-family: "Inter", -apple-system, "system-ui", Helvetica, sans-serif;
+  }
+  aside a:hover {
+    background: #c4c4c4;
+    text-decoration: none;
+  }
+}
+
+aside + p {
+  text-indent: 2rem;
+}
+
+hr + aside + p {
+  text-indent: 0;
+}
+
+h3 + aside + p {
+  text-indent: 0;
+}
+
+figure + aside + p {
+  text-indent: 0;
+}
+
+div + aside + p {
+  text-indent: 0;
+}
+
+h1 {
+  font-family: "InterDisplay", -apple-system, "system-ui", Helvetica, sans-serif;
+  margin: 0 auto;
+  text-align: left;
+  width: 100%;
+}
+@media (max-width: 575.98px) {
+  h1 {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+}
+
+h4 {
+  color: #898989;
+  font-family: "InterDisplay", -apple-system, "system-ui", Helvetica, sans-serif;
+  font-size: clamp(1.125rem, 1.4vw, 1.375rem);
+  font-weight: normal;
+  margin: 0 auto;
+  text-align: left;
+  width: 100%;
+}
+@media (max-width: 575.98px) {
+  h4 {
+    text-align: left;
+  }
+}
+
+h2 {
+  color: #898989;
+  font-family: "InterDisplay", -apple-system, "system-ui", Helvetica, sans-serif;
+  font-size: clamp(1.25rem, 1.5vw, 1.5rem);
+  font-weight: normal;
+  margin: 1.5rem 0rem;
+}
+
+h3 {
+  color: #898989;
+  font-family: "InterDisplay", -apple-system, "system-ui", Helvetica, sans-serif;
+  font-size: clamp(1.125rem, 1.4vw, 1.375rem);
+  font-weight: normal;
+  margin: 1.5rem 0rem;
+}
+
+.content-posts {
+  display: block;
+  font-size: clamp(1.2rem, 2.5vw, 3rem);
+  font-family: "InterDisplay", -apple-system, "system-ui", Helvetica, sans-serif;
+  justify-content: space-between;
+  padding: 1rem 2ch;
+  width: 100%;
+}
+
+.postlist {
+  line-height: 1.7;
+  width: 100%;
+}
+.postlist td {
+  border-bottom: 1px solid #d8d8d8;
+}
+.postlist tr a {
+  color: #272727;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+}
+.postlist tr a:hover {
+  text-decoration: underline;
+  text-decoration-color: #272727;
+}
+
+.post {
+  text-align: left;
+}
+
+.date {
+  color: #898989;
+  text-align: right;
+}
+@media (max-width: 575.98px) {
+  .date {
+    display: none;
+  }
+}
+
+.must-read::after {
+  content: "*";
+  color: #c4c4c4;
+}
+
+figure {
+  margin: 3rem 0 3rem;
+}
+
+img {
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 100%;
+}
+
+figcaption {
+  color: #898989;
+  font-family: "Inter", -apple-system, "system-ui", Helvetica, sans-serif;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  text-align: center;
+}
+
+footer {
+  bottom: 2rem;
+  color: #898989;
+  display: block;
+  font-size: clamp(1.125rem, 1.4vw, 1.375rem);
+  padding: 4rem 0rem 0rem 0rem;
+  position: inherit;
+  text-align: center;
+  font-family: "InterDisplay", -apple-system, "system-ui", Helvetica, sans-serif;
+}
+@media (max-width: 575.98px) {
+  footer {
+    font-size: 1rem;
+  }
+}
+
+code {
+  background: #ebebeb;
+  border-radius: 0.3rem;
+  border: 1px solid #d8d8d8;
+  letter-spacing: normal;
+  font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  padding: 2px;
+}
+
+pre {
+  background: #ebebeb;
+  line-height: 1.1;
+  border-radius: 5px;
+  border: 1px solid #d8d8d8;
+  box-sizing: border-box;
+  margin: 1rem 0;
+  overflow: auto;
+  padding: 1rem;
+}
+pre code {
+  border: none;
+  padding: none;
+}
+
+.co {
+  color: #898989;
+}
+
+.im {
+  color: #a93232;
+}
+
+.dv {
+  color: #a93232;
+}
+
+.st {
+  color: #a93232;
+}
+
+.op {
+  color: #898989;
+}
+
+.pp {
+  font-weight: bold;
+}
+
+.dt {
+  font-weight: bold;
+}
+
+.kw {
+  font-weight: bold;
+}
+
+.cf {
+  font-weight: bold;
+}
+
+.bu {
+  font-weight: bold;
+}
+
+kbd {
+  font-size: 1rem;
+  font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  background: #ebebeb;
+  border-radius: 3px;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.3);
+  padding: 1px 2px 1px 2px;
+  border: 1px solid #d8d8d8;
+}
+
+blockquote {
+  color: #898989;
+  font-family: "Lyon Text", Charter, "Bitstream Charter", Georgia, serif;
+  font-style: italic;
+  line-height: 1.5;
+  margin: 2ch 4ch 2ch 0;
+  padding: 1ch 0 1ch 3ch;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.5rem 0;
+  width: 100%;
+}
+table th {
+  font-family: "InterDisplay", -apple-system, "system-ui", Helvetica, sans-serif;
+  border-top: 2px solid #d8d8d8;
+  min-width: 15ch;
+  padding: 0.2rem 0 0.2rem;
+  text-align: left;
+}
+table td {
+  padding: 0.2rem 0 0.2rem;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ebebeb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4c4c4;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #585858;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid #d8d8d8;
+  content: "";
+  margin: 2rem auto;
+  width: 100%;
+}
+@media (max-width: 575.98px) {
+  hr {
+    margin: 1rem auto;
+    width: 100%;
+  }
+}
+
+.backtotop {
+  background: #ebebeb;
+  border: 1px solid #d8d8d8;
+  border-radius: 1.5rem;
+  bottom: 2rem;
+  font-family: "Inter", -apple-system, "system-ui", Helvetica, sans-serif;
+  font-size: 2rem;
+  padding: 1.5rem;
+  position: fixed;
+  right: 2rem;
+  text-decoration: none;
+  z-index: 1;
+}
+.backtotop:hover {
+  color: #a93232;
+  border-radius: 1.5rem;
+  text-decoration: none;
+  background: #ebebeb;
+}
+@media (max-width: 575.98px) {
+  .backtotop {
+    font-size: 1.5rem;
+    padding: 0.75rem;
+  }
+}
+
+.homepage {
+  margin: auto 0;
+}
+
+.menu {
+  font-size: clamp(1.1rem, 2.5vw, 2.5vw);
+  margin: 5vh auto;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+.menuline {
+  margin: 2ch 0;
+  padding: 0 2rem;
+  color: #898989;
+}
+.menuline a {
+  text-decoration: none;
+  color: #898989;
+}
+.menuline a:hover {
+  color: #272727;
+  text-decoration: none;
+  text-decoration-color: #272727;
+  background: transparent;
+}
+@media (max-width: 575.98px) {
+  .menuline {
+    padding: 0 15vw;
+  }
+}
+
+.menuwelcome {
+  text-align: center;
+  padding: 2rem 0 2rem 0;
+  font-family: "InterDisplay", -apple-system, "system-ui", Helvetica, sans-serif;
+  color: #272727;
+  background: #ebebeb;
+}
+@media (max-width: 575.98px) {
+  .menuwelcome {
+    width: 100%;
+    margin: -15rem 0 0 0;
+  }
+}
+
+.menuheader {
+  font-family: "InterDisplay", -apple-system, "system-ui", Helvetica, sans-serif;
+  color: #272727;
+  font-weight: bold;
+}
+@media (max-width: 575.98px) {
+  .menuheader {
+    display: none;
+  }
+}
+
+.menulinks {
+  font-family: "Lyon Display", "Iowan Old Style", "Palatino Linotype", "URW Palladio L", serif;
+}
+.menulinks:before {
+  color: #d8d8d8;
+  content: "  —  ";
+  font-family: "Lyon Text", Charter, "Bitstream Charter", Georgia, serif;
+  font-style: normal;
+}
+@media (max-width: 575.98px) {
+  .menulinks:before {
+    display: none;
+  }
+}
+
+.essays {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+.essays-grid {
+  display: grid;
+}
+
+.essaytitle {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  margin: 0 auto;
+  font-size: clamp(2rem, 2.5vw, 3rem);
+  font-family: "InterDisplay", -apple-system, "system-ui", Helvetica, sans-serif;
+}
+.essaytitle:hover {
+  text-decoration: underline;
+}
+
+.essaylink {
+  text-decoration: none;
+}
+.essaylink:hover {
+  background: none;
+}
+
+#craft {
+  background: #88dcb3;
+  font-weight: bold;
+}
+#craft:hover {
+  text-decoration: underline;
+}
+
+#our-own-shadow {
+  background: #272727;
+  color: #f5f5f5;
+  letter-spacing: -2px;
+  font-family: font-displayserif;
+}
+
+#a-mountain-of-clouds {
+  background: #88b3dc;
+  letter-spacing: -2px;
+  text-align: center;
+}
+#a-mountain-of-clouds:hover {
+  text-decoration: underline;
+}
+
+#on-love {
+  font-family: "Lyon Display", "Iowan Old Style", "Palatino Linotype", "URW Palladio L", serif;
+  font-style: italic;
+  letter-spacing: -2px;
+  background: #dc8888;
+}
+#on-love:hover {
+  text-decoration: underline;
+}
+
+#coming-soon {
+  letter-spacing: -2px;
+}
+#coming-soon:hover {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=style.css.map */

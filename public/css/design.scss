@@ -1,0 +1,727 @@
+// Imports
+
+@import url("/css/lyontext/font.css");
+@import url("/css/lyondisplay/font.css");
+@import url("/css/ibmplexmono/font.css");
+@import url("/css/inter/font.css");
+
+// Grays
+
+$bg0: #f5f5f5;
+$bg1: #ebebeb;
+$bg2: #d8d8d8;
+$bg3: #c4c4c4;
+$fg0: #272727;
+$fg1: #585858;
+$fg2: #898989;
+$bbb: #000000;
+
+// Sharp Colors
+$red: #a93232;
+$green: #32a96e;
+$blue: #326ea9;
+
+// Muted Colors
+$mutedred: #dc8888;
+$mutedblue: #88b3dc;
+$mutedgreen: #88dcb3;
+
+// Typography
+
+$font-sans: "Inter", -apple-system, "system-ui", Helvetica, sans-serif;
+$font-displaysans: "InterDisplay", -apple-system, "system-ui", Helvetica, sans-serif;
+$font-serif: "Lyon Text", Charter, "Bitstream Charter", Georgia, serif;
+$font-displayserif: "Lyon Display", "Iowan Old Style", "Palatino Linotype", "URW Palladio L", serif;
+$font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+
+// Defaults
+
+* {
+  font-feature-settings: "kern" 1, "liga" 1, "onum" 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-variant-numeric: normal;
+}
+
+// Responsiveness
+
+$breakpoints: (
+  sm: (
+    min: 576px,
+    max: 575.98px,
+  ),
+  md: (
+    min: 768px,
+    max: 767.98px,
+  ),
+  lg: (
+    min: 992px,
+    max: 991.98px,
+  ),
+  xl: (
+    min: 1200px,
+    max: 1199.98px,
+  ),
+  xxl: (
+    min: 1400px,
+    max: 1399.98px,
+  ),
+);
+
+@mixin breakpoint($breakpoint, $direction: min) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-values: map-get($breakpoints, $breakpoint);
+    $breakpoint-min: map-get($breakpoint-values, min);
+    $breakpoint-max: map-get($breakpoint-values, max);
+
+    @if $direction == min {
+      @media (min-width: $breakpoint-min) {
+        @content;
+      }
+    } @else {
+      @media (max-width: $breakpoint-max) {
+        @content;
+      }
+    }
+  } @else {
+    @if $direction == min {
+      @media (min-width: $breakpoint) {
+        @content;
+      }
+    } @else {
+      @media (max-width: $breakpoint) {
+        @content;
+      }
+    }
+  }
+}
+
+// Main styles
+
+html {
+  -webkit-hyphens: auto;
+  background: $bg0;
+  color: $fg0;
+  font-size: 1rem;
+  height: 100%;
+  hyphens: auto;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+div {
+  display: block;
+}
+
+p {
+}
+
+p + p {
+  text-indent: 2rem;
+}
+
+// Links
+
+a {
+  background: none;
+  color: $fg0;
+  text-decoration: underline;
+  text-decoration-color: $bg2;
+
+  &::visited {
+    color: $fg1;
+  }
+
+  &:hover {
+	background: $bg2;
+  }
+}
+
+.copy {
+  background: none;
+  border: none;
+  color: $fg2;
+  text-decoration: none;
+
+  &::visited {
+    color: $fg1;
+  }
+
+  &:hover {
+    background: transparent;
+    color: $fg0;
+  }
+}
+
+// Lists
+
+ul {
+  list-style: none;
+  margin: 1rem;
+  padding-left: 1ch;
+
+  li {
+    &::before {
+      color: $fg2;
+      content: "-";
+      padding-right: 1ch;
+    }
+  }
+}
+
+ol {
+  margin: 1rem;
+  padding-left: 1ch;
+
+  li {
+    counter-increment: list;
+    list-style-type: none;
+
+    &::before {
+      color: $fg2;
+      content: counter(list) ".";
+      padding-right: 1ch;
+    }
+  }
+}
+
+// Articles
+
+article {
+  font-family: $font-serif;
+	font-size: clamp(1.125rem, 1.4vw, 1.375rem);
+	line-height: 1.5;
+  margin: 5vh auto;
+  padding: 0 0 5rem;
+  max-width: 50ch;
+
+  @include breakpoint(sm, lg) {
+    margin: 5vh auto;
+    padding: 0 2ch 5rem;
+    width: 100%;
+  }
+}
+
+aside {
+  color: $fg2;
+  float: left;
+  font-family: $font-displaysans;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  line-height: inherit;
+  margin-left: -22rem;
+  text-align: right;
+  width: 18rem;
+  hyphens: manual;
+
+  a {
+    &:hover {
+      background: $bg2;
+    }
+  }
+
+  @include breakpoint(xl, xxl) {
+    background: $bg1;
+    border-radius: 5px;
+    border: 1px solid $bg2;
+    color: $fg2;
+    display: block;
+    float: none;
+    margin: 1rem 0;
+    padding: 1rem;
+    text-align: left;
+    width: 100%;
+    font-family: $font-sans;
+
+    a {
+      &:hover {
+        background: $bg3;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+aside + p {
+  text-indent: 2rem;
+}
+
+hr + aside + p {
+  text-indent: 0;
+}
+
+h3 + aside + p {
+	text-indent: 0;
+}
+
+figure + aside + p {
+  text-indent: 0;
+}
+
+div + aside + p {
+	text-indent: 0;
+}
+
+// Headers
+
+h1 {
+  font-family: $font-displaysans;
+  margin: 0 auto;
+  text-align: left;
+  width: 100%;
+
+  @include breakpoint(sm, lg) {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+}
+
+h4 {
+  color: $fg2;
+  font-family: $font-displaysans;
+  font-size: clamp(1.125rem, 1.4vw, 1.375rem);
+  font-weight: normal;
+  margin: 0 auto;
+  text-align: left;
+  width: 100%;
+
+  @include breakpoint(sm, lg) {
+  	text-align: left;
+  }
+}
+
+h2 {
+  color: $fg2;
+  font-family: $font-displaysans;
+  font-size: clamp(1.25rem, 1.5vw, 1.5rem);
+  font-weight: normal;
+  margin: 1.5rem 0rem;
+}
+
+h3 {
+  color: $fg2;
+  font-family: $font-displaysans;
+	font-size: clamp(1.125rem, 1.4vw, 1.375rem);
+  font-weight: normal;
+  margin: 1.5rem 0rem;
+}
+
+// Post-page related
+
+.content-posts {
+  display: block;
+  font-size: clamp(1.2rem, 2.5vw, 3rem);
+  font-family: $font-displaysans;
+  justify-content: space-between;
+  padding: 1rem 2ch;
+  width: 100%;
+}
+
+.postlist {
+  line-height: 1.7;
+  width: 100%;
+
+  td {
+    border-bottom: 1px solid $bg2;
+  }
+
+  tr {
+    a {
+      color: $fg0;
+      background: transparent;
+      border: none;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: $fg0;
+      }
+    }
+  }
+}
+
+.post {
+  text-align: left;
+}
+
+.date {
+  color: $fg2;
+  text-align: right;
+
+  @include breakpoint(sm, max) {
+    display: none;
+  }
+}
+
+.must-read {
+
+  &::after {
+    content: "*";
+    color: $bg3;
+  }
+}
+
+// Images
+
+figure {
+  margin: 3rem 0 3rem;
+}
+
+img {
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 100%;
+}
+
+figcaption {
+  color: $fg2;
+  font-family: $font-sans;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  text-align: center;
+}
+
+// Footers
+
+footer {
+  bottom: 2rem;
+  color: $fg2;
+  display: block;
+  font-size: clamp(1.125rem, 1.4vw, 1.375rem);
+  padding: 4rem 0rem 0rem 0rem;
+  position: inherit;
+  text-align: center;
+  font-family: $font-displaysans;
+
+  @include breakpoint(sm, lg) {
+    font-size: 1rem;
+  }
+}
+
+// Code
+
+code {
+  background: $bg1;
+  border-radius: 0.3rem;
+  border: 1px solid $bg2;
+  letter-spacing: normal;
+  font-family: $font-mono;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  padding: 2px;
+}
+
+pre {
+  background: $bg1;
+  line-height: 1.1;
+  border-radius: 5px;
+  border: 1px solid $bg2;
+  box-sizing: border-box;
+  margin: 1rem 0;
+  overflow: auto;
+  padding: 1rem;
+
+  code {
+    border: none;
+    padding: none;
+  }
+}
+
+.co {
+  color: $fg2;
+}
+.im {
+  color: $red;
+}
+.dv {
+  color: $red;
+}
+.st {
+  color: $red;
+}
+.op {
+  color: $fg2;
+}
+.pp {
+  font-weight: bold;
+}
+.dt {
+  font-weight: bold;
+}
+.kw {
+  font-weight: bold;
+}
+.cf {
+  font-weight: bold;
+}
+.bu {
+  font-weight: bold;
+}
+
+kbd {
+  font-size: 1rem;
+  font-family: $font-mono;
+  background: $bg1;
+  border-radius: 3px;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.3);
+  padding: 1px 2px 1px 2px;
+  border: 1px solid $bg2;
+}
+
+// Quotes
+
+blockquote {
+  color: $fg2;
+  font-family: $font-serif;
+  font-style: italic;
+  line-height: 1.5;
+  margin: 2ch 4ch 2ch 0;
+  padding: 1ch 0 1ch 3ch;
+}
+
+// Tables
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.5rem 0;
+  width: 100%;
+
+  th {
+    font-family: $font-displaysans;
+    border-top: 2px solid $bg2;
+    min-width: 15ch;
+    padding: 0.2rem 0 0.2rem;
+    text-align: left;
+  }
+
+  td {
+    padding: 0.2rem 0 0.2rem;
+  }
+}
+
+// Scroll bars
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $bg3;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $fg1;
+}
+
+// Misc
+
+hr {
+  border: 0;
+  border-bottom: 1px solid $bg2;
+  content: "";
+  margin: 2rem auto;
+  width: 100%;
+
+  @include breakpoint(sm, lg) {
+  	margin: 1rem auto;
+  	width: 100%;
+  }
+}
+
+.backtotop {
+  background: $bg1;
+  border: 1px solid $bg2;
+  border-radius: 1.5rem;
+  bottom: 2rem;
+  font-family: $font-sans;
+  font-size: 2rem;
+  padding: 1.5rem;
+  position: fixed;
+  right: 2rem;
+  text-decoration: none;
+  z-index: 1;
+
+  &:hover {
+    color: $red;
+    border-radius: 1.5rem;
+    text-decoration: none;
+    background: $bg1;
+  }
+
+  @include breakpoint(sm, lg) {
+  	font-size: 1.5rem;
+  	padding: 0.75rem;
+  }
+}
+
+// landing page, links and whatnot.
+
+.homepage {
+  margin: auto 0;
+}
+
+.menu {
+  font-size: clamp(1.1rem, 2.5vw, 2.5vw);
+  margin: 5vh auto;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+.menuline {
+  margin: 2ch 0;
+  padding: 0 2rem;
+  color: $fg2;
+
+  a {
+    text-decoration: none;
+    color: $fg2;
+
+    &:hover {
+      color: $fg0;
+      text-decoration: none;
+      text-decoration-color: $fg0;
+      background: transparent;
+    }
+  }
+  
+  @include breakpoint(sm, md) {
+		padding: 0 15vw;
+  }
+}
+
+.menuwelcome {
+  text-align: center;
+  padding: 2rem 0 2rem 0;
+  font-family: $font-displaysans;
+  color: $fg0;
+  background: $bg1;
+  
+  @include breakpoint(sm, md) {
+  	width: 100%;
+  	margin: -15rem 0 0 0;
+  }
+}
+
+.menuheader {
+	font-family: $font-displaysans;
+  color: $fg0;
+  font-weight: bold;
+
+  @include breakpoint(sm, md) {
+    display: none;
+  }
+}
+
+.menulinks {
+  font-family: $font-displayserif;
+
+  &:before {
+    color: $bg2;
+    content: "\20\20\2014\20\20";
+    font-family: $font-serif;
+    font-style: normal;
+
+    @include breakpoint(sm, md) {
+      display: none;
+    }
+  }
+}
+
+// essays page, let's see where this takes us.
+
+.essays {
+	margin: 0 auto;
+
+	width: 100%;
+	height: 100%;
+}
+
+.essays-grid {
+	display: grid;
+}
+
+.essaytitle {
+	width: 100%;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	height: 30vh;
+
+	margin: 0 auto;
+	
+	font-size: clamp(2rem, 2.5vw, 3rem);
+	font-family: $font-displaysans;
+		
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.essaylink {
+	text-decoration: none;
+	
+	&:hover {
+		background: none;
+	}
+}
+
+// individual essay decoration
+
+#craft {
+	background: $mutedgreen;
+	font-weight: bold;
+	
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+#our-own-shadow {
+	background: $fg0;
+	color: $bg0;
+	letter-spacing: -2px;
+	font-family: font-displayserif;
+}
+
+#a-mountain-of-clouds {
+	background: $mutedblue;
+	letter-spacing: -2px;
+	text-align: center;
+	
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+#on-love {
+	font-family: $font-displayserif;
+	font-style: italic;
+	letter-spacing: -2px;
+	background: $mutedred;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+#coming-soon {
+	letter-spacing: -2px;
+	
+	&:hover {
+		text-decoration: none;
+	}
+}

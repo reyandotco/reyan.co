@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "Lyon Display";
+  src: url("LyonDisplay-Black.woff2") format("woff2"),
+    url("LyonDisplay-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lyon Display";
+  src: url("LyonDisplay-Bold.woff2") format("woff2"),
+    url("LyonDisplay-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lyon Display";
+  src: url("LyonDisplay-BlackItalic.woff2") format("woff2"),
+    url("LyonDisplay-BlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lyon Display";
+  src: url("LyonDisplay-Light.woff2") format("woff2"),
+    url("LyonDisplay-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lyon Display";
+  src: url("LyonDisplay-BoldItalic.woff2") format("woff2"),
+    url("LyonDisplay-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lyon Display";
+  src: url("LyonDisplay-LightItalic.woff2") format("woff2"),
+    url("LyonDisplay-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lyon Display";
+  src: url("LyonDisplay-Medium.woff2") format("woff2"),
+    url("LyonDisplay-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lyon Display";
+  src: url("LyonDisplay-RegularItalic.woff2") format("woff2"),
+    url("LyonDisplay-RegularItalic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lyon Display";
+  src: url("LyonDisplay-Regular.woff2") format("woff2"),
+    url("LyonDisplay-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

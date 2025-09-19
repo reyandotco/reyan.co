@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>E-commerce Woes</title>
+    <link rel="shortcut icon" href="/icon.png" type="image/x-icon" />
+    <link rel="icon" href="/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/style.css" media="screen" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="&ldquo;Is this what everyone has to go through?&rdquo;"
+    />
+  </head>
+  <article>
+    <h1>E-commerce Woes</h1>
+    <h4>Jan 09, 2022 &mdash; Reyan Chaudhry</h4>
+    <hr />
+    <p>
+      A common sentiment often expressed in many internet technology circle
+      jerks (which I won't name here) is the following:
+    </p>
+    <blockquote>
+      <p>
+        As basically every facet of our lives slowly but surely finds itself
+        trapped within terabytes large <code>sql</code> files and the terrible
+        UIs of (most) modern operating systems, it's quite humbling to look back
+        and realize how volatile our precious data is becoming.
+      </p>
+    </blockquote>
+    <p>
+      Try this, go to any tech support subreddit, or even better, go to a forum
+      relating just about any major company and see what people are complaining
+      about, disappearing files, missing transactions, simple things just
+      failing silently, and the list just goes on.
+    </p>
+    <aside>
+      <p>
+        I'm genuinely curious if this happens due to review fraud or because
+        ratings and reviews are valued equally in the total count (which
+        shouldn't be the case IMO)
+      </p>
+    </aside>
+    <p>
+      Wanna see something even worse? Go to your preferred choice of app store
+      and check out the reviews for any banking or finance related app/service:
+      Binance, Chase, Bank of America, Paypal, and so on and so forth. You'll
+      immediately notice how the total reviews will be some crazy high number
+      (4.8/5 usually) but if you sort by recent or even browse the
+      algorithmically selected top results, you'll notice how negative most of
+      them are.
+    </p>
+    <p>
+      It's a genuinely endless stream of people complaining how these billion
+      dollar corporations have fucked them over.
+    </p>
+    <h2>H&M And Some Fantastic Programming</h2>
+    <p>
+      The other day I tried shopping online for some new clothes as in-person
+      school was coming up and my previous fashion phase was starting to wear
+      off on me. I decided to go for a more minimal aesthetic for the upcoming
+      spring and following peoples' recommendations, made an H&M account.
+    </p>
+    <aside><p>Every store has to have a shitty app now too.</p></aside>
+    <p>
+      For the longest time I didn't give a fuck about signing up for random
+      stores, but recently a lot of them have taken away the option to check out
+      as a guest, and not signing up gives you a massive price markup too (which
+      companies try to hide by claiming that members get 15% off or some
+      bullshit), I've gotten tired of so I have dump email addresses designed
+      just for this purpose.
+    </p>
+    <p>
+      That's beside the point, however, I made an account, filled my cart,
+      applied some discount codes, and completed the checkout... and the order
+      didn't go through. I got a popup saying that there was a problem with my
+      payment method with an error code of RM1. A quick <code>!g</code> session
+      led to no avail, it was just other people complaining about the same
+      thing, so I decided to check my bank to see if maybe it was just H&M's
+      shitty react app of a website not updating my cart, and would you behold:
+    </p>
+    <figure>
+      <img
+        loading="lazy"
+        style="width: 50%"
+        src="/media/images/ecommerce/transactions.webp"
+        alt="Getting Scammed"
+      />
+      <figcaption>Thanks for the help.</figcaption>
+    </figure>
+    <p>
+      I had been charged for an order that didn't even go through, great! And
+      multiple times too, though I suspect that was because I tried placing the
+      order a couple more times after getting the original error (to no avail).
+      My immediate reaction was to get on the shitty live customer support chat,
+      which surprisingly didn't take too long to redirect me to an agent.
+    </p>
+    <p>
+      The first one claimed to have "made an override" that would allow me to
+      place my order, which turned out to be a complete lie (??) because it
+      failed again and I got charged yet another time. The second agent was a
+      little more helpful and told me that it could be an issue with my bank not
+      authorizing H&M as a merchant.
+    </p>
+    <p>
+      I decided to go with what he said and called Chase customer support, after
+      staying on hold for a good 20 minutes I was simply told that "there is no
+      problem on our side sir please contact the merchant". Great, back to
+      square one.
+    </p>
+    <aside>
+      <p>
+        I don't get the point of completely lying, if you can't help me, just
+        fucking tell me; my time's getting wasted too bruh.
+      </p>
+    </aside>
+    <p>
+      I decided to give H&M customer support one last chance, this time I was
+      told (once again) that the agent had contacted some "higher upper" that
+      placed an override on my account. I decided against my common sense to
+      believe her and tried submitting the order... to an RM1 once again.
+    </p>
+    <figure>
+      <img
+        loading="lazy"
+        src="/media/images/ecommerce/tweet.webp"
+        alt="Great tweet bruh."
+      />
+      <figcaption>A classic from 2017 I see.</figcaption>
+    </figure>
+    <p>
+      Being the stubborn idiot that I am, I decided to forget about purchasing
+      with my card and try the other payment methods. Two of them were with
+      Klarna (yeah I know) and claimed to let you pay in increments of 4 or
+      after 30 days. Now I'm not the biggest fan of this kinda stuff (it's
+      obviously just to get people to waste more money in the moment by letting
+      them think they aren't using any) but I was too tired to care and gave it
+      a shot anyway. I'm glad I did since neither of those methods worked, I
+      guess even though the payments claim to be managed by Klarna the
+      transactions are handled by the shitty merchant anyways.
+    </p>
+    <p>
+      Our last resort was PayPal, now while I had promised myself long ago that
+      I would never make an account with them, I was already balls deep in adult
+      shit and decided to give it a go anyways, since I would probably need it
+      later on in life. I bitwarden'ed a password, added my card, and voila! My
+      purchase actually went through this time. I don't know how but I'm not
+      complaining, at least it worked.
+    </p>
+    <figure>
+      <img
+        loading="lazy"
+        src="/media/images/ecommerce/shipping.webp"
+        alt="LOL"
+      />
+      <figcaption>How the fuck did this make it to production??</figcaption>
+    </figure>
+    <p>As you can see, clearly the bugs didn't end there.</p>
+    <p>But alas, what can we do.</p>
+    <h2>So what's your point?</h2>
+    <p>
+      My point is what the FUCK are we paying these companies for, why does any
+      garbage MVP always <code>git push</code>'ed right to the public for people
+      to struggle with time and time again. Why&mdash;in a world where this is
+      quite literally about to become the way everyone buys and sells
+      things&mdash;are there still so many unacceptable bugs.
+    </p>
+    <aside>
+      <p>
+        You can't even really blame the devs, it's the shitty managers who want
+        their garbage product ideas placed into prod as soon as possible who are
+        at fault.
+      </p>
+    </aside>
+    <p>
+      Every store has to have a barely usable but surprisingly perfectly SEO
+      optimized suite of websites and apps, paired with membership plans and
+      loyalty discounts for those stupid enough to come back time and time again
+      to get their wallets milked.
+    </p>
+    <p>
+      Sure, mistakes happen, but what is it with billion-dollar corporations and
+      absolutely fucking USELESS error messages, how am I even supposed to know
+      which of the many middlemen have let me down during a transaction so I can
+      just <b>try</b> and solve the problem on my own instead of annoying some
+      poor underpaid and overworked help desk girl (who can rarely even help me)
+      about it.
+    </p>
+    <h2>Chase being Chase</h2>
+    <p>
+      To put the cherry on top of this experience, I tried sending some money to
+      my father over Zelle&#8482; the next day (which has worked flawlessly in
+      the past mind you) but got an email a couple hours later saying that the
+      transaction was cancelled and that I had a "secure notice" waiting for me
+      in my Chase account.
+    </p>
+    <p>I go to check and once again behold:</p>
+    <figure>
+      <img
+        loading="lazy"
+        src="/media/images/ecommerce/locked.webp"
+        alt="Chase being chase."
+      />
+      <figcaption>"Some payments seemed unusual" huh</figcaption>
+    </figure>
+    <aside>
+      <p>
+        Why they even bother to ask you to verify when it will just show the
+        same message after is beyond me honestly.
+      </p>
+    </aside>
+    <p>
+      Filling out your SSN and account number does nothing, it just claims to be
+      "unable to verify" (I've been doing this long enough to know that's
+      bullshit) and tells you to call the Chase fraud hotline.
+    </p>
+    <p>Well sure, this can't take too long right? Let's give it a shot.</p>
+    <p>
+      I go on and spend the majority of a perfectly good Saturday running
+      errands and waiting on hold in order to actually be able to speak to a
+      human. I'm not that mad yet because I assume there are many others who
+      probably have the same issue as me and are waiting in line as well.
+    </p>
+    <aside>
+      <p>
+        I'll be nice and attribute this to logistics errors but holy shit it was
+        frustrating.
+      </p>
+    </aside>
+    <p>
+      What pissed me off was was what happened when I did get off the hold tone,
+      all I heard was random keyboard clacking and some whispering voices with
+      no response, and after a couple seconds of this I literally just got hung
+      up on. I almost lost it but kept my composure and went back on the line,
+      after an hour or so I get a representative who asks me some basic info and
+      then goes on to say that everything seems fine with my account and that he
+      needs me to enter my debit details to verify my identity, I say sure and
+      type everything he wants me to.
+    </p>
+    <p>
+      He then proceeds to tell me that there isn't enough information to verify
+      my account (even though I correctly answered all given queries) and that I
+      need to go to a Chase branch in person and get my account unlocked from
+      there. Bro then why in the living and breathing
+      <em>fuck</em> did you waste 20 minutes of my time asking for information
+      that could literally ruin my life if in the wrong hands just to tell me
+      that you can't do anything for me?
+    </p>
+    <p>
+      I was in such shock that I literally asked him to his face whether he was
+      joking and he said "No, you need to check up with your local Chase
+      branch.", I asked him once again about the process and just hung up.
+      There's only so much idiocy I can take in one day.
+    </p>
+    <p>
+      I've checked up a couple more times and no one seems to be able to tell my
+      why exactly it was that my account got locked, which I don't find
+      surprising&mdash;probably just the high and mighty banking algorithms
+      eliciting yet another statistically accounted for false positive on a
+      customer that can't do anything about it.
+    </p>
+    <h2>The Impossibility of a Decent Interface</h2>
+    <h2>Paypal???</h2>
+  </article>
+  <a class="backtotop" href="#">↑</a>
+</html>

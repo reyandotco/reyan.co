@@ -1,0 +1,69 @@
+#!/bin/sh
+#
+# - ins
+#
+# generate a gallery of inspiration
+# purposely using gnutils bcuz macos sucks
+#
+
+# error handling
+die() {
+	printf 'error: %s.\n' "$1" >&2
+	exit 1
+}
+
+# vars
+desti="$HOME/Documents/Website/public/gallery/"
+indir="$HOME/Documents/Website/public/media/images/gallery/"
+index="$desti/index.html"
+tempx="$desti/tempx.html"
+sourc="$desti/sourc.html"
+
+cd "$desti" || die "cd failed"
+
+preserve() { # preserve original header
+	ghead -n 15 "$index" >"$tempx"
+}
+
+gen() { # turn files into actual figures
+	for i in "$indir"/*; do
+		printf '%s\n' "<figure class=\"gal-thumb\"><img src=\"${i}\" loading=\"eager\" class=\"gal-image\" /></figure>"
+	done | gshuf >"$sourc"
+	gsed -i "s|/Users/nu/Documents/Website/public||" "$sourc"
+}
+
+temp() { # split placeholders
+	gsplit -n l/3 "$sourc"
+	# make div
+	for i in "$desti"/xa*; do
+		gsed -i '1s/^/<div class="gal-column">\n/' "$i"
+	done
+	# close
+	printf "</div>" | gtee -a "$desti"/xa*
+}
+
+close() { # finalize elements
+	mv "$tempx" "$index"
+	for i in "$desti"/xa*; do
+		cat "$i" >>"$index"
+	done
+	# add footer
+	printf '%s\n' "
+		</div>
+	</main>
+</html>" >>"$index"
+	# for tidiness' sake
+	prettier -w "$index"
+}
+
+clean() {
+	rm "$sourc" "$desti"/xa*
+}
+
+{
+	preserve || die 'preserve failed'
+	gen || die 'gen failed'
+	temp || die 'temp failed'
+	close || die 'close failed'
+	clean || die 'clean failed'
+}

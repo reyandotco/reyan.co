@@ -1,0 +1,68 @@
+@import url("themes/bw.css");
+@import url("/css/ibmplexmono/font.css");
+@import url("/css/inter/font.css");
+
+html {
+  color: var(--fg0);
+  background: var(--bg0);
+  font-size: 2em;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+}
+
+p {
+  color: var(--bg1);
+  max-width: 50ch;
+  white-space: pre-wrap;
+  padding: 1rem;
+}
+
+.hit {
+  color: var(--fg0);
+}
+
+.miss {
+  color: var(--red);
+  border-bottom: 1px solid var(--red);
+}
+
+.cursor {
+  color: var(--bg1);
+  border-bottom: 2px solid var(--bg1);
+}
+
+.results {
+  color: var(--fg0);
+  padding-top: 2rem;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer > * {
+  padding: 1rem;
+}
+
+a {
+  color: var(--bg1);
+  text-decoration: unset;
+}
+
+a:hover,
+.selected {
+  color: var(--fg0);
+}

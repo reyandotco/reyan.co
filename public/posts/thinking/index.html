@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Thinking Things Over</title>
+    <link rel="shortcut icon" href="/icon.png" type="image/x-icon" />
+    <link rel="icon" href="/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/style.css" media="screen" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="&ldquo;Garbage designers' CAPTIVATING story arc.&rdquo;"
+    />
+  </head>
+  <article>
+    <h1>Thinking Things Over</h1>
+    <h4>Jan 09, 2022 &mdash; Reyan Chaudhry</h4>
+    <hr />
+    <p>
+      For those of you familiar with the way I usually do&mdash;or more
+      accurately, don't&mdash;do things around here, the recent changes to this
+      website may seem shocking. In light web development growth, I've decided
+      to present a fresh take on what I consider to be my corner of the
+      internet, and the changes I've made to have it be just that much more
+      "pleasant" of an experience for those unfortunate enough to find their way
+      here.
+    </p>
+    <h2>General Design</h2>
+    <p>
+      To people familiar with swiss-like typography and the laid-back style of
+      more <em>floral</em> design studios, the overall look of this website
+      shouldn't seem that odd to you; in fact it's quite reminiscent of
+      aesthetics visible in works by studios like
+      <a href="https://mouthwash.studio">MOUTHWASH</a>.
+    </p>
+    <p>
+      I've decided to tone it down a little more, however, revealing only
+      content that's necessary and trying to immerse the reader in the actual
+      content of the page as much as possible, this is an article after all, not
+      a billboard (a sentiment I wish more journalism corporations would pick
+      up).
+    </p>
+    <p>
+      I made the amazing decision of properly learning SCSS/SASS before
+      beginning the re-work of this website and god am I thankful I decided to
+      do so. If you aren't already using it, please give SASS a try, it makes
+      writing CSS go from a pain to quite literally enjoyable.
+    </p>
+    <h2>Colour Choices</h2>
+    <p>
+      For colours I decided to keep it high-contrast again, better readability
+      and an overall cleaner look is a benefit that's hard to not take up. Here
+      are the colours (main shades) summarized:
+    </p>
+    <ul>
+      <li>background: <code>#f5f5f5</code></li>
+      <li>text: <code>#272727</code></li>
+      <li>red: <code>#a93232</code></li>
+    </ul>
+    <p>
+      I've <em>tried</em> to keep it easy on the eyes while also maintaining
+      contrast, but that's honestly a pretty uphill battle so I'll settle with
+      these for now, it leaves me enough breathing room to tone down things
+      later while also keeping the shades modular enough so that I have the
+      ability to add light backgrounds, subtle borders etc.
+    </p>
+    <h2>Typography</h2>
+    <p>
+      After an arguably unreasonable amount of time changing line 4 of this CSS
+      and reloading the main page over and over again, I finally settled on
+      <a href="https://cotypefoundry.com/our-fonts/aeonik/">Aeonik</a> as the
+      main display typeface for this website. It's considerably more respectful
+      than it's rather playful predecessor
+      <a href="https://fonts.google.com/specimen/Alegreya+Sans"
+        >Alegreya Sans</a
+      >
+      yet also more relaxed than my runner-up choice of
+      <a href="https://www.monotype.com/fonts/neue-haas-unica"
+        >Neue Haas Unica</a
+      >, one of my usual go-tos when I need a font for this purpose.
+    </p>
+    <figure>
+      <img
+        loading="lazy"
+        src="https://i.postimg.cc/FKX7cYcY/image.png"
+        alt="font comparisons"
+      />
+      <figcaption>I promise I'm not delusional.</figcaption>
+    </figure>
+    <p>
+      Aeonik is just that little bit more geometric, and its slightly wider
+      figures give an air of luxury that doesn't exactly rival the legendary
+      presence of Unica but provides a nice break from it. Overall I find it
+      serves my needs very well and keeps me from folding to over to
+      <a href="https://www.swisstypefaces.com/fonts/suisse/">Suisse Int'l</a>
+      for just a little longer.
+    </p>
+    <p>
+      For headers, the choice was obvious, I have been a fan of
+      <a href="https://klim.co.nz/retail-fonts/tiempos-headline/">Tiempos</a>
+      for just about forever, and its "headline" weight was just begging to be
+      tried. It matches quite well (though not as well as I'd like) with Aeonik
+      so for now I think it's a fine enough choice, I only use it for
+      <code>h1</code>'s anyways so it's not too much of a bother.
+    </p>
+    <p>
+      Body text was a different story, however; I found myself in the same
+      struggle that I was in last year: searching for a readable serif font that
+      didn't take up too much horizontal space and wasn't EB Gara&shy;mond.
+    </p>
+    <aside>
+      <p>
+        <a href="https://www.linotype.com/1549552/electra-family.html"
+          >Electra</a
+        >
+        holds a special place in my heart as it's the main typeface used in The
+        Wheel of Time book series.
+      </p>
+    </aside>
+    <p>
+      I decided to instead settle with another one of my all time favourites:
+      <a href="https://commercialtype.com/catalog/lyon/lyon_text">Lyon Text</a>,
+      It's vaguely reminiscent of Electra and makes posts just extremely
+      pleasant to read. For font sizes, I'm going with a
+      <code>clamp(1.125rem, 1.4vw, 1.375rem)</code> strategy in order to get the
+      most out of possible screen sizes while also making things readable for
+      those on lower resolution displays. 18px might be cutting it close but I
+      think more than enough people are sporting HD displays by now, so it
+      shouldn't be a problem.
+    </p>
+    <blockquote>
+      <p>
+        For example, I no longer have to overstress block quotes as much, they
+        look pleasant on their own with very minimal styling.
+      </p>
+    </blockquote>
+    <p>
+      And last but definitely not least considering how technical I get here
+      sometimes, the monospace font. I decided to go a little bespoke with
+      <a href="https://lineto.com/typefaces/akkurat-mono">Akkurat Mono</a> It's
+      sturdy, typographically sound, doesn't have character ambiguation issues,
+      and overall just gets the job done; no complaints here.
+    </p>
+    <p>
+      I've kept the syntax-highlighting system however, it's about as easy and
+      minimal as I can get and is a grand step up from just a boring
+      <code>pre</code> element in my opinion, although it does take some time to
+      generate:
+    </p>
+    <aside>
+      <p>
+        I'll probably do away with the darkened code block background later,
+        it's a bit distracting from the overall text flow.
+      </p>
+    </aside>
+    <div class="source-code">
+      <pre
+        class="source-code cpp"
+      ><code class="source-code cpp"><span class="dt">void</span> fillArrayWithRandNos(<span class="dt">int</span> nos[], <span class="dt">int</span> size) {
+   <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; i++) {
+     nos[i] = rand() % (<span class="dv">45</span>) + <span class="dv">55</span>;
+   }
+ }
+
+<span class="dt">void</span> displayArray(<span class="dt">int</span> nos[], <span class="dt">int</span> size) {
+  cout &lt;&lt; <span class="st">&quot;</span><span class="sc">\n</span><span class="st">The Array of Scores: </span><span class="sc">\n</span><span class="st">&quot;</span> &lt;&lt; endl;
+  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; i++) {
+    cout &lt;&lt; nos[i] &lt;&lt; <span class="st">&quot; &quot;</span>;
+    <span class="cf">if</span> ((i + <span class="dv">1</span>) % <span class="dv">10</span> == <span class="dv">0</span>)
+      cout &lt;&lt; endl;
+  }
+}
+
+<span class="dt">double</span> variance(<span class="dt">int</span> nos[], <span class="dt">int</span> size) {
+  <span class="dt">double</span> avg = mean(nos, size);
+  <span class="dt">double</span> variance, sum = <span class="dv">0</span>;
+  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; size; i++) {
+    sum += pow(nos[i] - avg, <span class="dv">2</span>);
+  }
+  variance = (<span class="dt">double</span>)sum / (size);
+  <span class="cf">return</span> variance;
+}</code></pre>
+    </div>
+    <aside>
+      <p>
+        Aggressive hyphenation is also a must, no one likes overly ragged
+        paragraphs!
+      </p>
+    </aside>
+    <p>
+      Aside from just font choices, I've also let go of the "header to the side"
+      notion I had in my previous design, instead opting to let headers rest
+      where they belong in between paragraphs, but leaving considerable
+      breathing room for them as well. I've also decided to have the paragpraphs
+      that immediately precede a header be indented, it just adds that little
+      bit of book-like feel that I want articles on this site to (mostly) have.
+    </p>
+    <h2>Responsiveness!</h2>
+    <p>
+      Yes, believe it or not, the Retard Supreme himself has actually taken the
+      time to make his website usable on all sorts of devices. I mostly have the
+      immense power of SCSS to thank for this, but god does it feel good to
+      slide the side of the browser window left and right on this site and watch
+      things get bigger smaller, and&mdash;lord forbid&mdash;even go away
+      entirely. Comments will disappear when hard to read, and there's actually
+      <em>stages</em> to the main menu's slow but sure deformation as the
+      viewport gets smaller.
+    </p>
+    <p>
+      It's of course not perfect (the home page could use a little spicing up on
+      longer phones), but it is far more than I would've ever expected from
+      myself and genuinely good enough for now.
+    </p>
+    <p>The gallery is best viewed on desktop though.</p>
+    <h2>Nitpicks</h2>
+    <p>It wouldn't be a certified nuaNce article without some of these.</p>
+    <p>
+      First and foremost, no amount of fiddling with borders and shadows makes
+      images look good anymore, I've decided to just leave them how they are for
+      now but besides hand editing every image I post to look like an aesthetic
+      film photo I don't think I'll be making any progress in this regard.
+    </p>
+    <p>
+      As you can see with this one, certain combinations of headers and first
+      line lengths can lead to the occasional strangely typeset section. This
+      one is quite unavoidable even without my indentation rule so I guess we'll
+      just deal with it.
+    </p>
+    <p>
+      The current bland landing page definitley needs some work, but I'm not
+      quite sure what to add to it aside from perhaps a rotating list of
+      recommendations or something, I'll have to think more on this one.
+    </p>
+    <p>
+      And... that's it? Surpiringly I don't have much more to rant on about, I'm
+      generally satisfied with the work I've done here, which is definitely a
+      first when it comes to my relationship with web development.
+    </p>
+    <p>
+      Conclusion being: take the time to learn how to do things properly you
+      won't really regret it, also remember keeping things simple can never hurt
+      and that javascript is about as haram as it gets around these parts.
+    </p>
+    <p>Of course, don't forget to have a good day.</p>
+  </article>
+  <a href="#" class="backtotop">↑</a>
+</html>

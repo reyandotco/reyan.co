@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Clean Home</title>
+    <link rel="shortcut icon" href="/icon.png" type="image/x-icon" />
+    <link rel="icon" href="/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/style.css" media="screen" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Trust me it's worth it" />
+  </head>
+  <article>
+    <h1>Clean Home</h1>
+    <h4>May 17, 2021 &mdash; Reyan Chaudhry</h4>
+    <hr />
+    <p>
+      If you are genuinely insane like me, you may find that having “clean”
+      directory names/structures and no dotfiles in your home directory gives
+      you a sense of power, makes you feel as if you have something to be proud
+      of. If so, here is a guide on achieving this relatively maniacal goal with
+      minimal (ok that’s a lie) difficulty.
+    </p>
+    <figure>
+      <img
+        loading="lazy"
+        src="https://i.postimg.cc/Y9m0bVfH/image.png"
+        alt="bruh"
+      />
+      <figcaption>I do indeed get no real work done.</figcaption>
+    </figure>
+    <p>
+      On a side note, the reason I’m putting actual effort into this is that
+      <a href="https://github.com/vizs/declutter-home/">vizs</a> seems to have
+      (sensibly, mind you) given up on maintaining his
+      <code>declutter-home</code> repo, which was basically the bible for us
+      clean home enthusiasts.
+    </p>
+    <p>
+      Fear not, however! As I plan on providing a sane, expanded, and updated
+      replacement to said README in this article.
+    </p>
+    <h2 id="the-easy-stuff">The Easy Stuff</h2>
+    <p>
+      Lets get some of the more obedient software out of the way first, shall
+      we? Your shell is probably what triggers you most when it comes to
+      dotfiles, and <code>bash</code> is infamous for littering your home
+      directory with trash. Unfortunately, however, nothing can be done to save
+      our fellow bash users, switch to <code>zsh/mksh</code> or bust lmfao.
+    </p>
+    <aside>
+      <p>
+        <code>zshenv</code> is important as it is sourced before any other shell
+        configs, all env vars should be specified there.
+      </p>
+    </aside>
+    <p>
+      For us intellectuals, setting the env var <code>ZDOTDIR</code> in
+      <code>/etc/zsh/zshenv</code> and then putting all our necessary
+      <code>zsh</code> files in the specified directory should be satisfactory.
+      Note, however, that you can choose a custom <code>ZSHRC</code> file as
+      well, should you desire that.
+    </p>
+    <p>
+      What’s next is probably the most crucial step here, setting XDG env vars.
+      Here are the 3 you really need to know:
+    </p>
+    <ul>
+      <li><code>XDG_CONFIG_HOME</code>, normally <code>~/.config</code></li>
+      <li><code>XDG_DATA_HOME</code>, normally <code>~/.local/share</code></li>
+      <li><code>XDG_CACHE_HOME</code>, normally <code>~/.cache</code></li>
+    </ul>
+    <p>
+      Most programs <em>should</em> begin to adhere to these new standards after
+      a couple restarts, a good practice is to simply dump everything you have
+      in <code>~/.config</code> or such straight into your newly desired
+      directory and keep track of which programs break. Remember those as we
+      will need them later.
+    </p>
+    <p>
+      Here’s where we get to spamming env vars for programs that don’t normally
+      obey XDG, specifications, some important ones being:
+    </p>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>Program</th>
+          <th>Env Var</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td>dialog</td>
+          <td><code>DIALOGRC</code></td>
+        </tr>
+        <tr class="even">
+          <td>GIMP</td>
+          <td><code>GIMP2_DIRECTORY</code></td>
+        </tr>
+        <tr class="odd">
+          <td>gnupg</td>
+          <td><code>GNUPGHOME</code></td>
+        </tr>
+        <tr class="even">
+          <td>readline</td>
+          <td><code>INPUTRC</code></td>
+        </tr>
+        <tr class="odd">
+          <td>less</td>
+          <td><code>LESSHISTFILE</code></td>
+        </tr>
+        <tr class="even">
+          <td>mail</td>
+          <td><code>MAIL</code> / <code>MAILRC</code></td>
+        </tr>
+        <tr class="odd">
+          <td>go</td>
+          <td><code>GOBIN</code> / <code>GOPATH</code></td>
+        </tr>
+        <tr class="even">
+          <td>pass</td>
+          <td><code>PASSWORD_STORE_DIR</code></td>
+        </tr>
+        <tr class="odd">
+          <td>pulseaudio [1]</td>
+          <td><code>PULSE_COOKIE</code></td>
+        </tr>
+        <tr class="even">
+          <td>python [2]</td>
+          <td><code>PYTHONUSERBASE</code></td>
+        </tr>
+        <tr class="odd">
+          <td>shell-history</td>
+          <td><code>HISTFILE</code></td>
+        </tr>
+        <tr class="even">
+          <td>cargo</td>
+          <td><code>CARGO_HOME</code></td>
+        </tr>
+        <tr class="odd">
+          <td>rustup</td>
+          <td><code>RUSTUP_HOME</code></td>
+        </tr>
+        <tr class="even">
+          <td>weechat</td>
+          <td><code>WEECHAT_HOME</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      As an aside, you can set custom <code>PATH</code>’s to house your scripts
+      and such wherever you’d like, ridding the need for
+      <code>.local</code> entirely
+    </p>
+    <h2 id="xorg">Xorg</h2>
+    <p>
+      Another massive pain in the home dir’s ass is <code>X</code> and all the
+      bullshit that it likes to dump there. The problem is magnified once you
+      realize how annoying Xorg is when it comes to fixing it using it’s built
+      in settings. What’s normally used to start <code>X</code> display servers
+      is the <code>startx</code> script, which is old, inefficient, and bloated.
+      It’s recommended to instead use
+      <a href="https://github.com/Earnestly/sx">sx</a> and modify that to your
+      needs instead (lines 25, 26 and 29). <code>sx</code> will start an Xorg
+      instance as normal and save you many headaches.
+    </p>
+    <h2 id="ssh">ssh</h2>
+    <p>More info soon.</p>
+    <h2 id="npm">npm</h2>
+    <p>
+      <code>npm</code> is a bit less straightforward than it’s equally soy yet
+      slightly more bearable python cousin, there a couple extra steps involved.
+      First and foremost, set the <code>npm_config_userconfig</code> env var to
+      a specific file. This file will be the per-user
+      <code>npm</code> configuration file. Next, run
+    </p>
+    <pre><code>npm config edit</code></pre>
+    <p>
+      To open up your config. Go to the line with the <code>cache</code> option
+      and set it to whatever directory you’d like. What you choose will be used
+      instead of the normal <code>~/.npm</code>. It will still dump the
+      <code>package-lock</code> shit in your home whenever you decide to install
+      something, but at least those can be removed manually without any worries.
+      Worth the slight inconvenience IMO.
+    </p>
+    <h2 id="flags">Flags</h2>
+    <p>
+      Now that we’re done with environment related stuff, let’s get to the fun
+      part, manually defining flags! Quite a few programs have these, with the
+      following being some of the more relevant ones:
+    </p>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>Program</th>
+          <th>Flag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td>dunst</td>
+          <td><code>-conf</code></td>
+        </tr>
+        <tr class="even">
+          <td>picom</td>
+          <td><code>--config</code></td>
+        </tr>
+        <tr class="odd">
+          <td>sxhkd</td>
+          <td><code>-c</code></td>
+        </tr>
+        <tr class="even">
+          <td>wget</td>
+          <td><code>--no-hsts</code> / <code>--hists-file</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      As you can see, most programs use some variation of c/config/conf to point
+      at a specific config file. Laying out all possible programs and variations
+      here would be pointless, as the list varies from user to user. Just check
+      the <code>man</code> page of the desired program and search for
+      ‘directory’ or ‘config’ and the like, you’ll find what you are looking for
+      eventually.
+    </p>
+    <h2 id="patching">Patching</h2>
+    <p>
+      Of course, most smaller programs (or those which you don’t expect to be
+      updated anytime soon) can be manually patched to adhere to yours’ (or
+      XDG’s) specified directory requirements. Ample use of <code>grep</code>,
+      <code>sed</code>, and Vim substitution can make this task trivial, just be
+      careful not to mess things up. And obviously, submitting PR’s to make
+      things easier for others in the future would never hurt.
+    </p>
+    <h2 id="homedir-roomba">Homedir Roomba</h2>
+    <p>
+      You can use a
+      <a href="https://gitlab.com/reyandotco/dotless/-/blob/master/usr/bin/ch"
+        >roomba script</a
+      >
+      to automatically remove certain pesky directories (such as Thunar’s
+      constant caching of image thumbnails) every 60 seconds or such. This
+      removes the need to constantly check for and manually delete said
+      directories.
+    </p>
+    <h2 id="conclusion">Conclusion</h2>
+    <p>
+      I’ve reasonably left out too many specifics in this post, as the vast
+      variety of software on Linux makes it hard to account for everything, but
+      I hope you’ve gotten the gist of how to manage a clean home on your own.
+      It’s not too difficult and genuinely allows you to have a better overlook
+      of your system and to manage it more effectively. All opinions expressed
+      here, are, of course, subjective and my own.
+    </p>
+    <p>
+      Big thanks to vizs, gk, and others who worked on this before me and
+      inspired me to write this.
+    </p>
+    <p>Have a good day.</p>
+  </article>
+  <a class="backtotop" href="#">↑</a>
+</html>
