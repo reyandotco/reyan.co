@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# Image resizing script using ImageMagick
+# Resizes all JPG, JPEG, and PNG images to 1080px width while maintaining aspect ratio
+
+# Check if ImageMagick is installed
+if ! command -v convert &> /dev/null; then
+    echo "Error: ImageMagick is not installed. Please install it first."
+    exit 1
+fi
+
+# Create output directory
+OUTPUT_DIR="resized"
+mkdir -p "$OUTPUT_DIR"
+
+# Counter for processed images
+count=0
+
+# Process each image type
+for ext in jpg jpeg JPG JPEG png PNG; do
+    shopt -s nullglob
+    for img in *."$ext"; do
+        # Get image width
+        width=$(identify -format "%w" "$img" 2>/dev/null)
+        
+        # Skip if width couldn't be determined or is less than 1080
+        if [ -z "$width" ] || [ "$width" -lt 1080 ]; then
+            echo "Skipping: $img (width: ${width:-unknown}px, less than 1080px)"
+            continue
+        fi
+        
+        echo "Processing: $img (width: ${width}px)"
+        
+        # Resize image with high quality settings
+        # -resize 1080x: sets width to 1080, maintains aspect ratio
+        # -filter Lanczos: high-quality resampling filter
+        # -quality 100: maximum quality (for JPEG)
+        # -strip: removes metadata to reduce file size (optional, remove if you want to keep EXIF data)
+        convert "$img" \
+            -resize 1080x \
+            -filter Lanczos \
+            -quality 100 \
+            "$OUTPUT_DIR/$img"
+        
+        if [ $? -eq 0 ]; then
+            echo "  ✓ Saved to $OUTPUT_DIR/$img"
+            ((count++))
+        else
+            echo "  ✗ Failed to process $img"
+        fi
+    done
+    shopt -u nullglob
+done
+
+echo ""
+echo "Processing complete! Resized $count image(s) to $OUTPUT_DIR/"
