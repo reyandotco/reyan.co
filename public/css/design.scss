@@ -511,6 +511,7 @@ table {
 
 ::-webkit-scrollbar {
   width: 15px;
+  display: none;
 }
 
 ::-webkit-scrollbar-track {
@@ -574,9 +575,13 @@ hr {
 
 .menu {
   font-size: clamp(1.1rem, 2.5vw, 2.5vw);
-  margin: 5vh auto;
+  margin: -20vh auto;
   width: fit-content;
   white-space: nowrap;
+  
+  @include breakpoint(sm, md) {
+    margin: -15vh auto;
+  }
 }
 
 .menuline {
@@ -601,16 +606,20 @@ hr {
   }
 }
 
-.menuwelcome {
+.welcome {
   text-align: center;
-  padding: 2rem 0 2rem 0;
+  font-size: clamp(1.1rem, 2.5vw, 2.5vw);
+  padding: 4rem;
   font-family: $font-displaysans;
   color: $fg0;
   background: $bg1;
   
+  border-bottom: 1px solid $bg3;
+  border-top: 1px solid $bg3;
+  
   @include breakpoint(sm, md) {
   	width: 100%;
-  	margin: -15rem 0 0 0;
+  	// margin: -15rem 0 0 0;
   }
 }
 

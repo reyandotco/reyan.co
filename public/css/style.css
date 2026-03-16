@@ -387,6 +387,7 @@ table td {
 
 ::-webkit-scrollbar {
   width: 15px;
+  display: none;
 }
 
 ::-webkit-scrollbar-track {
@@ -447,9 +448,14 @@ hr {
 
 .menu {
   font-size: clamp(1.1rem, 2.5vw, 2.5vw);
-  margin: 5vh auto;
+  margin: -20vh auto;
   width: fit-content;
   white-space: nowrap;
+}
+@media (max-width: 575.98px) {
+  .menu {
+    margin: -15vh auto;
+  }
 }
 
 .menuline {
@@ -473,17 +479,19 @@ hr {
   }
 }
 
-.menuwelcome {
+.welcome {
   text-align: center;
-  padding: 2rem 0 2rem 0;
+  font-size: clamp(1.1rem, 2.5vw, 2.5vw);
+  padding: 4rem;
   font-family: "InterDisplay", -apple-system, "system-ui", Helvetica, sans-serif;
   color: #272727;
   background: #ebebeb;
+  border-bottom: 1px solid #c4c4c4;
+  border-top: 1px solid #c4c4c4;
 }
 @media (max-width: 575.98px) {
-  .menuwelcome {
+  .welcome {
     width: 100%;
-    margin: -15rem 0 0 0;
   }
 }
 
