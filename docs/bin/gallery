@@ -13,8 +13,8 @@ die() {
 }
 
 # vars
-desti="$HOME/Documents/Website/public/gallery/"
-indir="$HOME/Documents/Website/public/media/images/gallery/"
+desti="$HOME/Documents/Website/docs/gallery/"
+indir="$HOME/Documents/Website/docs/media/images/gallery/"
 index="$desti/index.html"
 tempx="$desti/tempx.html"
 sourc="$desti/sourc.html"
@@ -29,7 +29,7 @@ gen() { # turn files into actual figures
 	for i in "$indir"/*; do
 		printf '%s\n' "<figure class=\"gal-thumb\"><img src=\"${i}\" loading=\"eager\" class=\"gal-image\" /></figure>"
 	done | gshuf >"$sourc"
-	gsed -i "s|/Users/nu/Documents/Website/public||" "$sourc"
+	gsed -i "s|/Users/nu/Documents/Website/docs||" "$sourc"
 }
 
 temp() { # split placeholders
